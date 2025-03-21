@@ -112,6 +112,7 @@ REACT_APP_BACKEND_URL = http://localhost:8080/ # Your previous configured backen
 Start frontend app:
 
 ```bash
+npm install react-scripts@latest
 npm start
 ```
 
