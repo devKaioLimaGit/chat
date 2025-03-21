@@ -508,7 +508,21 @@ Make it executable and run it:
 chmod +x updateWhaticket
 ./updateWhaticket
 ```
-
+```bash
+            const wbot = new whatsapp_web_js_1.Client({
+                session: sessionCfg,
+                authStrategy: new whatsapp_web_js_1.LocalAuth({ clientId: 'bd_' + whatsapp.id }),
+                puppeteer: {
+                    executablePath: process.env.CHROME_BIN || undefined,
+                    browserWSEndpoint: process.env.CHROME_WS || undefined,
+                    args: [
+                        ...args.split(' ').filter(arg => arg !== ''), // Mantém argumentos existentes
+                        '--no-sandbox', // Adiciona flag obrigatória
+                        '--disable-setuid-sandbox' // Adiciona flag auxiliar
+                    ]
+                }
+            });
+```
 ## Contributing
 
 This project helps you and you want to help keep it going? Buy me a coffee:
